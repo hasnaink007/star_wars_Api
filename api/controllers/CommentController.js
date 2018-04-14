@@ -1,28 +1,24 @@
-/**
- * CommentController
- *
- * @description :: Server-side actions for handling incoming requests.
- * @help        :: See https://sailsjs.com/docs/concepts/actions
- */
-
+var _ = require('lodash');
 module.exports = {
   create: function(req, res){
-    var params = {
-      body: req.body.comment.body,
-      score: req.body.comment.score,
-      planet: req.params.id
-    };
-    Comment.create(params).exec(function (err, comment) {
+    var allowedParameters = ["body", "score"];
+    var data = _.pick(req.body, allowedParameters);
+    data.planet = req.params.id;
+    if (_.isUndefined(data.body))
+      return res.badRequest(['Body is required.']);
+    if (!_.isInteger(data.score) || (data.score < 0 || data.score > 5))
+      return res.badRequest(["Score must be Integer and between 0 and 5."]);
+    Comment.create(data).exec(function (err, comment) {
       if(err)
         res.serverError(err);
-      res.ok(comment);
+      res.created(comment);
     });
   },
 
-  list: function(req, res){
+  list: function(req, res, next){
     Planet.findOne({id: req.params.id}).populate('comments').exec(function (err, planet) {
-      if(err)
-        res.serverError(err);
+      if(err) next(err);
+      if (_.isUndefined(planet)) res.notFound(['Planet Not Found.']);
       res.ok(planet.comments);
     });
   }
