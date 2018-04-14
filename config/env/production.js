@@ -26,7 +26,10 @@ module.exports = {
     ***************************************************************************/
     default: {
       adapter: 'sails-postgresql',
-      url: process.env.DATABASE_URL,
+      host: process.env.DATABASE_HOST,
+      user: process.env.DATABSE_USERNAME,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_NAME,
       ssl: false
     },
 
