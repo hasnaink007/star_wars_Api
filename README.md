@@ -21,7 +21,7 @@ Make sure you have [Node.js] and the [PostgreSQL] installed.
 Install the dependencies and devDependencies and start the server.
 
 ```sh
-git clone https://github.com/superflextech/frontend.gitt # or clone your own fork
+https://github.com/hasnaink007/star_wars_Api.git # or clone your own fork
 cd frontend
 npm install # To install NodeJS dependencies.
 npm run start:dev # To run project in Development Environment.
@@ -172,7 +172,8 @@ Response `200 OK`
             "score": 5,
             "body": "Hello, This is a Testing Comment.",
             "planet": 1
-        },]
+        }]
+}
 ```
 
 
@@ -185,7 +186,7 @@ Response `200 OK`
 
 
 
-   [git-repo-url]: <https://github.com/superflextech/frontend.git>
+   [git-repo-url]: <https://github.com/hasnaink007/star_wars_Api.git>
    [node.js]: <http://nodejs.org>
    [PostgreSQL]: <https://www.postgresql.org>
    [express]: <http://expressjs.com>
