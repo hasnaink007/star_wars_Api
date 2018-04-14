@@ -22,10 +22,11 @@ Install the dependencies and devDependencies and start the server.
 
 ```sh
 https://github.com/hasnaink007/star_wars_Api.git # or clone your own fork
-cd frontend
+cd star_wars_Api
 npm install # To install NodeJS dependencies.
 npm run start:dev # To run project in Development Environment.
 npm run start # To run project in Production Environment.
+npm run test
 ```
 ### Environment Variable setup
 ```
